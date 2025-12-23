@@ -1,4 +1,3 @@
-
 ![bend](https://github.com/hitaboy/bend_wp_tailwind_svelte/blob/main/screenshot.png?raw=true)
 # Bend WordPress Theme
 
@@ -173,6 +172,35 @@ In Svelte, this becomes the `openingTimes` prop as a parsed JavaScript object/ar
 
 This theme supports **Advanced Custom Fields (ACF) Blocks** for creating custom Gutenberg blocks with PHP templates.
 
+### ACF Field Group JSON Files
+
+Each block template includes a **JSON file** containing the ACF field group configuration. These JSON files are meant to be **imported into WordPress Advanced Custom Fields** to quickly set up the required field groups for each block.
+
+**Benefits:**
+- 🚀 **Quick setup**: Import pre-configured field groups instead of creating them manually
+- 🔄 **Version control**: Field configurations are tracked in your theme
+- 📦 **Portability**: Easily move blocks between projects
+- 🎯 **Consistency**: Ensure correct field structure across environments
+
+**How to import JSON field groups:**
+
+1. Go to **Custom Fields > Tools** in WordPress admin
+2. Click on the **Import Field Groups** tab
+3. Click **Choose File** and select the JSON file (e.g., `opening-hours.json`)
+4. Click **Import File**
+5. The field group will be automatically created and linked to the block
+
+**Example structure:**
+```
+inc/block-templates/
+├── opening-hours/
+│   ├── opening-hours.php       # Block template
+│   └── opening-hours.json      # ACF field group configuration
+└── parallax-image/
+    ├── parallax-image.php      # Block template
+    └── parallax-image.json     # ACF field group configuration
+```
+
 ### Creating an ACF Block
 
 **Step 1:** Register the block in `functions.php`
@@ -203,7 +231,7 @@ function my_acf_blocks() {
 }
 ```
 
-**Step 2:** Create the block template in `inc/block-templates/my-custom-block.php`
+**Step 2:** Create the block template in `inc/block-templates/my-custom-block/my-custom-block.php`
 
 ```php
 <?php
@@ -232,12 +260,18 @@ $content = get_field('content');
 </div>
 ```
 
-**Step 3:** Create ACF Field Group in WordPress
+**Step 3:** Create and Export ACF Field Group
 
 1. Go to **Custom Fields > Add New**
 2. Add your fields (title, content, etc.)
 3. Set Location Rules: **Block is equal to My Custom Block**
 4. Publish
+5. Go to **Custom Fields > Tools > Export Field Groups**
+6. Select your field group
+7. Click **Generate export code**
+8. Save as `inc/block-templates/my-custom-block/my-custom-block.json`
+
+**Alternative:** If you already have a JSON file, skip creating fields manually and use **Import Field Groups** instead.
 
 ### Block Features
 
@@ -302,11 +336,16 @@ bend/
 │       ├── bundle.es.js      # ES module bundle
 │       └── bundle.umd.js     # UMD bundle
 ├── inc/
-│   └── block-templates/      # ACF block templates
-│       ├── opening-hours/
-│       │   └── opening-hours.php
-│       └── parallax-image/
-│           └── parallax-image.php
+│   ├── block-templates/      # ACF block templates
+│   │   ├── opening-hours/
+│   │   │   ├── opening-hours.php
+│   │   │   └── opening-hours.json
+│   │   └── parallax-image/
+│   │       ├── parallax-image.php
+│   │       └── parallax-image.json
+│   └── layout-templates/     # Theme layout templates
+│       ├── header.php        # Site header
+│       └── footer.php        # Site footer
 ├── js/                       # Svelte/Vite workspace
 │   ├── src/
 │   │   ├── lib/
@@ -321,8 +360,8 @@ bend/
 ├── styles/
 │   └── input.css             # Additional custom styles
 ├── functions.php             # Theme functions
-├── header.php
-├── footer.php
+├── header.php                # Header wrapper (loads inc/layout-templates/header.php)
+├── footer.php                # Footer wrapper (loads inc/layout-templates/footer.php)
 ├── style.css                 # Theme stylesheet header
 └── README.md
 ```

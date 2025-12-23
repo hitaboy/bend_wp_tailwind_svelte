@@ -3,7 +3,7 @@
  * The template for displaying pages
  */
 
-get_header();
+get_template_part('inc/layout-templates/header');
 ?>
 
 <main class="content-area p-8">
@@ -66,4 +66,4 @@ get_header();
 </main><!-- #primary -->
 
 <?php
-get_footer();
+get_template_part('inc/layout-templates/footer');

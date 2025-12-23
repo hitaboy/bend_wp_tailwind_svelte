@@ -158,13 +158,15 @@ function bend_editor_scripts() {
 add_action('enqueue_block_editor_assets', 'bend_editor_scripts');
 ```
 
-Then use in PHP templates:
+Then use in PHP templates or ACF blocks:
 
 ```php
 <div class="my-component" data-count="5"></div>
 ```
 
 The component will automatically mount and receive props from data attributes.
+
+**Note**: If you're using ACF blocks, remember to import the corresponding JSON field group files from `inc/block-templates/[block-name]/[block-name].json` via **Custom Fields > Tools > Import Field Groups** in WordPress admin.
 
 ## Hot Reload with PHP
 

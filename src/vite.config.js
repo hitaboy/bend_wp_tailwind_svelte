@@ -25,7 +25,7 @@ export default defineConfig(({ mode }) => {
 		return {
 			plugins: [
 				svelte(),
-				watchExternalFiles(['*.php', 'inc/**/*.php', 'templates/**/*.php'])
+				watchExternalFiles(['*.php', 'inc/**/*.php', 'inc/block-templates/**/*.php', 'inc/layout-templates/**/*.php'])
 			],
 			build: {
 				lib: {
