@@ -1,3 +1,5 @@
+
+![bend](https://github.com/hitaboy/bend_wp_tailwind_svelte/blob/main/screenshot.png?raw=true)
 # Bend WordPress Theme
 
 A modern WordPress theme built with Svelte 5 and Tailwind CSS v3, designed for custom theme development. Built to deliver stunning performance, precise design fine-tuning, and advanced custom interactivity through interactive components and custom ACF blocks.
