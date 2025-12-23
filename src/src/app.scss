@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset & Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+.imgStyle {
+    img {
+        max-width: 100%;
+        height: auto;
+        border: 10px solid #f00; /* Tailwind's gray-100 */
+    }
+}
