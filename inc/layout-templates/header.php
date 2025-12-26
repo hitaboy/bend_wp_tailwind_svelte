@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> data-theme="benddark">
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +36,7 @@
                     <?php endif;
                 }
                 ?>
-                
+                <input type="checkbox" value="bendlight" class="toggle theme-controller" />
             </div><!-- .site-branding -->
 
             <nav id="site-navigation" class="main-navigation flex-auto flex justify-end items-center">

@@ -5,8 +5,8 @@
      * Exposes a --perceptual CSS variable (0 to 1) that children can use for animations
      */
 
-    import { scrollY } from "./scrollStore.js";
-    import { sharedCount } from './stores.js';
+    import { scrollY } from "../stores/scrollStore.js";
+
 
     let { 
         debug = true,               // Show debug lines and progress indicator
@@ -37,7 +37,6 @@
                 result = parseFloat(in_trigger.replace('px',''))
             }else if(in_trigger.includes('%')){
                 result = height*parseFloat(in_trigger.replace('%',''))/100
-                console.log(result)
             }
         }else{
             result = in_trigger+'px'
@@ -51,7 +50,6 @@
                 result = parseFloat(out_trigger.replace('px',''))
             }else if(out_trigger.includes('%')){
                 result = height*parseFloat(out_trigger.replace('%',''))/100
-                console.log(result)
             }
         }else{
             result = out_trigger+'px'
@@ -81,7 +79,7 @@
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
-<div class="relative h-screen bg-orange-500 border-2 border-zinc-800" 
+<div class="relative h-screen" 
      bind:this={container}
      style="--perceptual: {perceptual};">
     
@@ -92,7 +90,6 @@
     {/if}
     
     <div class="parallax-content">
-        <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-30 z-50">{$sharedCount}</div>
         <img src="https://images.unsplash.com/photo-1765871319901-0aaafe3f1a2a?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sample unsplash" />
     </div>
     {#if children}

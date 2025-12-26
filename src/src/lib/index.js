@@ -1,5 +1,5 @@
-import Counter from './Counter.svelte';
-import Parallax from './Parallax.svelte';
+import Counter from './components/Counter.svelte';
+import Parallax from './components/Parallax.svelte';
 import { mount } from 'svelte';
 import '../app.scss'; // Import Tailwind styles
 

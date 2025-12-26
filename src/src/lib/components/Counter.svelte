@@ -1,10 +1,6 @@
 <script>
-	import { sharedCount } from './stores.js';
+	import { sharedCount } from '../stores/counterStore.js';
 	let { initialCount = 0, opening_times = [] } = $props();
-
-	$effect(() => {
-		console.log('Opening times:', opening_times);
-	});
 
 	$effect(() => {
 		sharedCount.set(initialCount);
@@ -19,7 +15,7 @@
 	}
 </script>
 
-<div class="flex items-center gap-4 p-4 bg-blue-500">
+<div class="flex items-center gap-4 py-4 bg-primary">
 	<button class="px-4 py-2 bg-red-500 text-white rounded" onclick={decrement}>-</button>
 	<span class="text-2xl font-bold">{$sharedCount}</span>
 	<button class="px-4 py-2 bg-green-500 text-white rounded" onclick={increment}>+</button>

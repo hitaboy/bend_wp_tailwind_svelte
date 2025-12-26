@@ -62,7 +62,10 @@ get_template_part('inc/layout-templates/header');
 
     endwhile;
     ?>
-
+    <div>
+        <button class="btn btn-xs btn-primary">Responsive</button>
+    </div>
+    
 </main><!-- #primary -->
 
 <?php

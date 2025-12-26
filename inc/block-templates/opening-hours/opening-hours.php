@@ -10,7 +10,7 @@ if ( substr( $textcolor, 0, 1 ) !== '#' && substr( $textcolor, 0, 4 ) !== 'rgb('
 $height_style = $full_height ? 'height: 100%;' : '';
 ?>
 <aside class="opening-times flex flex-col justify-between" style="color: <?php echo $textcolor; ?>; text-align: <?php echo $align; ?>; <?php echo $height_style; ?>">
-    <h5 class="bg-red-500" style="margin-top: 0; margin-bottom: 0.5rem;">Opening Hours</h5>
+    <h5 class="" style="margin-top: 0; margin-bottom: 0.5rem;">Opening Hours</h5>
     <?php $opening_times = get_field( 'opening_times' ); ?>
     <?php if ( ! empty( $opening_times ) ) { ?>
         <?php foreach ( $opening_times as $period ) { ?>
